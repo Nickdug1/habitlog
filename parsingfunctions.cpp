@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "parsingfunctions.h"
+// #include "main.h"
 
 using namespace std;
 
@@ -23,10 +23,10 @@ vector<vector<string>> read_tsplog(string file){ //read text/space log
 
         while (lineStream >> word) {
             habit.push_back(word);
-            cout << word << " ";
+            // teste1: cout << word << " ";
         }
         log.push_back(habit);
-        cout << endl;
+        // teste1: cout << endl;
     }
 
     r_file.close();
