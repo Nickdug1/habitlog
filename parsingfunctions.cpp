@@ -3,7 +3,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-// #include "main.h"
+#include "functions.h"
 
 using namespace std;
 

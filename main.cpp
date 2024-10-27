@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 // #include <iomanip>  // For std::setw
-#include "main.h"
+#include "functions.h"
 
 using namespace std;
 

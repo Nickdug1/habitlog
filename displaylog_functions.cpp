@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "functions.h"
+
 using namespace std;
 
 string center(string text, int width) {

@@ -1,5 +1,5 @@
-#ifndef PARSINGFUNCTIONS_H
-#define PARSINGFUNCTIONS_H
+#ifndef URAKHABITLOG_H
+#define URAKHABITLOG_H
 
 std::vector<std::vector<std::string>> read_tsplog(std::string);
 
