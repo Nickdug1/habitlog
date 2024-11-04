@@ -16,10 +16,10 @@ int main() {
     ofstream create_file("habitlog.txt", ios::app);
     create_file.close();
 
-    vector<vector<string>> habitlog = read_tsplog("habitlog.txt");
+    vector<vector<string>> habitlog = read_tsplog("habitlog.txt"); // habito = <habitname desc 1001110 rep streak maxstreak>  
 
     display_log(habitlog);
-    
+
     //ask for functionality [SelectHabit | UpdateDailyLog | CreateNewHabit | ShowRecords]
         //select_habit() will display habit and give options: [Edit | Back]
             //edit_habit() will give options: [ChangeName | ChangeDesc | ChangeAtributtes | ResetStreak | Remove]
@@ -37,9 +37,13 @@ int main() {
                 //prompt the user to redo or leave [redo | leave]
 
         //createnewhabit()
-
-        //prompt the user [Monthly | Annual | All | Leave]
+        habitlog.push_back(create_new_habit());
+        write_tsplog(habitlog, "habitlog.txt");
+        
+        //showrecords() prompt the user [Monthly | Annual | All | Leave]
              //display and prompt user again 
 
+        //put stuff in the log
+        
     return 0;
 }

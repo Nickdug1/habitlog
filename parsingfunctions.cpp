@@ -33,3 +33,24 @@ vector<vector<string>> read_tsplog(string file){ //read text/space log
 
     return log;
 }
+
+void oldchar_newchar(string& word,char oldchar,char newchar){
+	for (char& c : word){
+		if (c == oldchar){
+			c = newchar;
+		}
+	}
+} 
+
+void write_tsplog(const vector<vector<string>>& log, const string& filename){
+    ofstream w_file(filename);
+
+    for (const vector<string>& habit : log){
+    	for (const string& s : habit){
+    		w_file << s << " ";
+    	}
+        w_file << endl;
+    }     	
+
+    w_file.close();
+}
