@@ -28,7 +28,8 @@ int main() {
     switch(func){
     	case '0':
         //select_habit() will display habit description and give options: [Edit | Back]
-        int habitnunmber = select_habit(habitlog);
+        int habitnumber;
+        habitnumber = select_habit(habitlog);
         display_habit(habitlog, habitnumber);
             //edit_habit() will give options: [ChangeName | ChangeDesc | ChangeDays | ResetStreak | Remove]
                 //change_atributtes() will give options: [ChangeAttribute | Reset | Remove], Atributos serão 
