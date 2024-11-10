@@ -34,12 +34,14 @@ vector<vector<string>> read_tsplog(string file){ //read text/space log
     return log;
 }
 
-void oldchar_newchar(string& word,char oldchar,char newchar){
-	for (char& c : word){
+string oldchar_newchar(const string& word, char oldchar, char newchar){
+    string changedword = word; 
+	for (char& c : changedword){
 		if (c == oldchar){
 			c = newchar;
 		}
 	}
+	return changedword;
 } 
 
 void write_tsplog(const vector<vector<string>>& log, const string& filename){

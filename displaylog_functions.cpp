@@ -7,12 +7,25 @@
 using namespace std;
 
 string center(string text, int width) {
-    int padding = (width - text.size()) / 2;
-    string box = string(padding, ' ') + text + string((padding + (width - text.size()) % 2), ' '); 
-    return box;
-} 
+    if (width <= text.size()) {
+            return text;  // Return text as-is if width is too small
+        }
 
-void display_log(vector<vector<string>> log) {
+    int padding = (width - text.size()) / 2;
+    string box = string(padding, ' ') + text + string((padding + (width - text.size()) % 2), ' ');
+    return box;
+}
+
+// string center(const string& text, int width) {
+    // if (width <= text.size()) {
+        // return text;
+    // }
+    // int padding = (width - text.size()) / 2;
+    // string centered_text = string(padding, ' ') + text + string(width - text.size() - padding, ' ');
+    // return centered_text;
+// }
+
+void display_log(const vector<vector<string>>& log) {
     cout << "\033[2J\033[1;1H";
     const int HEADER_PADDING = 69;
     const int COLUMN_WIDTH = 15;
@@ -29,7 +42,7 @@ void display_log(vector<vector<string>> log) {
 
     for (int i = 0; i < log.size(); i++){
         cout << string(TABLE_PADDING, ' ');
-        cout << center(log[i][0], COLUMN_WIDTH) << "|";
+        cout << center(oldchar_newchar(log[i][0], '_', ' '), COLUMN_WIDTH) << "|"; //oldchar_newchar will change the underscores for spaces
         //This is because of the tsp formatting convention for the habit log, 
         //where rep, strk, maxstrk are the last 3 elements of the vector
         for (int j = log[i].size() - 3; j < log[i].size(); j++){
@@ -40,14 +53,16 @@ void display_log(vector<vector<string>> log) {
     cout << endl <<string(HEADER_PADDING*2 + 8 + 2, '-');
 }
 
-void display_habit(vector<vector<string>> log, int habitnumber){
+void display_habit(const vector<vector<string>>& log, int habitnumber){
 	cout << "\033[2J\033[1;1H";
     const int HEADER_PADDING = 69;
     const int COLUMN_WIDTH = 15;
-    const int TABLE_PADDING = (HEADER_PADDING*2 + 8 - 7*COLUMN_WIDTH)/2;
+    const int TOTAL_WIDTH = HEADER_PADDING*2 + 8;
+    const int TABLE_PADDING = (TOTAL_WIDTH - 7*COLUMN_WIDTH)/2;
 
     int habitsize = log[habitnumber].size();
-	cout << log[habitnumber][0] << endl << endl;
+    cout << string(HEADER_PADDING*2 + 8 + 2, '-');
+	cout << oldchar_newchar(log[habitnumber][0], '_', ' ') << endl << endl; //oldchar_newchar will change the underscores for spaces
 
     cout << string(HEADER_PADDING*2 + 8 + 2, '-');
 
@@ -55,29 +70,41 @@ void display_habit(vector<vector<string>> log, int habitnumber){
 	cout << "Streak: " << log[habitnumber][habitsize - 2] << endl;
 	cout << "MaxStreak: " << log[habitnumber][habitsize - 1] << endl;
 
-    cout << string(HEADER_PADDING*2 + 8 + 2, '-');
+    cout << string(HEADER_PADDING*2 + 8 + 2, '-') << endl;
 
     cout << string(TABLE_PADDING, ' ');
-    cout << center("Segunda-feira", COLUMN_WIDTH) << "|";
-	cout << center("Terça-feira", COLUMN_WIDTH) << "|";
-	cout << center("Quarta-feira", COLUMN_WIDTH) << "|";
-	cout << center("Quinta-feira", COLUMN_WIDTH) << "|";
-	cout << center("Sexta-feira", COLUMN_WIDTH) << "|";
+    cout << center("Segunda", COLUMN_WIDTH) << "|";
+	cout << center("Terça", COLUMN_WIDTH) << "|";
+	cout << center("Quarta", COLUMN_WIDTH) << "|";
+	cout << center("Quinta", COLUMN_WIDTH) << "|";
+	cout << center("Sexta", COLUMN_WIDTH) << "|";
 	cout << center("Sábado", COLUMN_WIDTH) << "|";
-	cout << center("Domingo", COLUMN_WIDTH) << "|" << endl;
-	cout << string(TABLE_PADDING, ' ');
-	for (char& binary : log[habitnumber][2]){
-		if (binary == 1){
-			cout << center("x", COLUMN_WIDTH) << "|";
-		}
-		else{
-			cout << center(" ", COLUMN_WIDTH) << "|";
-		}
+	cout << center("Domingo", COLUMN_WIDTH) << endl;
+
+    cout << string(TABLE_PADDING, ' ');
+	int i = 0;
+	for (const char& binary : log[habitnumber][2]) {
+	    if (i < 6) {  // For the first 6 items, add `|` after each element
+	        if (binary == '1') {
+	            cout << center("---Y---", COLUMN_WIDTH) << "|";
+	        } else {
+	            cout << center("---X---", COLUMN_WIDTH) << "|";
+	        }
+	    } else {  // For the last item, skip the final `|` and end with a newline
+	        if (binary == '1') {
+	            cout << center("---Y---", COLUMN_WIDTH);
+	        } else {
+	            cout << center("---X---", COLUMN_WIDTH);
+	        }
+	        cout << endl;
+	    }
+	    i++;
 	}
 	cout << endl;
 
     cout << string(HEADER_PADDING*2 + 8 + 2, '-');
 
-    cout << "Descrição: " << endl << "    " << log[habitnumber][1] << endl;
+    cout << "Descrição: " << endl << "    " << oldchar_newchar(log[habitnumber][1], '_', ' ') << endl;
+    cout << string(HEADER_PADDING*2 + 8 + 2, '-') << endl << endl;
 }
 

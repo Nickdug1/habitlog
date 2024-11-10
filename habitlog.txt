@@ -1,5 +1,4 @@
-Fazer_a_cama Fazer_a_cama_logo_após_acordar_para_papapa 8 4 4 
-habito_2 descricao_2 10 4 5 
-Jeca Tatu_vai_fazer_tatuzisses 1111100 0 0 0 
-HAHAHAHAH hahahhahaa 0000011 0 0 0 
-Jeca eca 1100101 0 0 0 
+Fazer_a_cama Fazer_a_cama_logo_após_acordar_para_papapa 1111111 8 4 4 
+habito_2 descricao_2 1100101 10 4 5 
+Jeca LOLOLO 1100101 0 0 0 
+HOHO HOHOHOHOHO 1100110 0 0 0 
