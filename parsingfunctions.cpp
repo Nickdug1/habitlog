@@ -7,26 +7,29 @@
 
 using namespace std;
 
+//read all habits (a habit per line) in habitlog.txt and returns a 2d vector of the file
 vector<vector<string>> read_tsplog(string file){ //read text/space log
 
     vector<vector<string>> log;
-
+    
     //Read log
     ifstream r_file(file);
     string line;
 
+    //loop through each line of r_file and stores it in var line
     while (getline(r_file, line)) {
+
         istringstream lineStream(line);
         string word;
 
         vector<string> habit;
-
+        //loop through all the words insine the line
         while (lineStream >> word) {
+            //insert the current word in vector habit
             habit.push_back(word);
-            // teste1: cout << word << " ";
         }
+        //insert all the habits insine log
         log.push_back(habit);
-        // teste1: cout << endl;
     }
 
     r_file.close();
@@ -34,6 +37,7 @@ vector<vector<string>> read_tsplog(string file){ //read text/space log
     return log;
 }
 
+//replaces a char (oldchar) for another (newchar)
 string oldchar_newchar(const string& word, char oldchar, char newchar){
     string changedword = word; 
 	for (char& c : changedword){

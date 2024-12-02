@@ -1,4 +1,2 @@
-Fazer_a_cama Fazer_a_cama_logo_após_acordar_para_papapa 1111111 8 4 4 
-habito_2 descricao_2 1100101 10 4 5 
-Jeca LOLOLO 1100101 0 0 0 
-HOHO HOHOHOHOHO 1100110 0 0 0 
+Fazer_a_cama Fazer_a_cama_logo_após_acordar_para_papapa 1111111 11 7 6 1 12 2024 
+programar programar_em_c++ 1110011 10 10 10 1 12 2024 

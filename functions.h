@@ -11,9 +11,13 @@ void display_log(const std::vector<std::vector<std::string>>& log);
 void display_habit(const std::vector<std::vector<std::string>>& log, int habitnumber);
 
 //UI
+void edit_habit(int habit_ID, std::vector<std::vector<std::string>>& habitlog);
+void increase_rep (int habit_ID, std::vector<std::vector<std::string>>& habitlog);
+void reset_streak (int habit_ID, std::vector<std::vector<std::string>>& habitlog);
+void update_habit_date (int habit_ID, std::vector<std::vector<std::string>>& habitlog);
 int select_habit(const std::vector<std::vector<std::string>>& habitlog);
 std::vector<std::string> create_new_habit();
-void edit_habit(int habitnumber, std::vector<std::vector<std::string>>& habitlog);
+
 
 //UI_inside
 std::string setweekdays();
