@@ -15,6 +15,8 @@ void edit_habit(int habit_ID, std::vector<std::vector<std::string>>& habitlog);
 void increase_rep (int habit_ID, std::vector<std::vector<std::string>>& habitlog);
 void reset_streak (int habit_ID, std::vector<std::vector<std::string>>& habitlog);
 void update_habit_date (int habit_ID, std::vector<std::vector<std::string>>& habitlog);
+void verify_required_habits(std::vector<std::vector<std::string>>& habitlog);
+void update_daily_log(std::vector<std::vector<std::string>> &habitlog);
 int select_habit(const std::vector<std::vector<std::string>>& habitlog);
 std::vector<std::string> create_new_habit();
 
